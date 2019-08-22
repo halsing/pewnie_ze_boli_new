@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification"
+        content="cEq6l5EoUt9xhehdYqfNqq_VuHv-hOl0NM7R4Mga0Mw"/>
+  <link rel="alternate" hreflang="pl" href="https://www.pewniezebo.li"/>
+  <meta name="language" content="PL">
+  <meta name="author" content="CrystalSkull_tattoo, adrian.zieba2@gmail.com">
+
+  <link rel="icon"
+        href="{% static 'base/images/logo/noz.png' %}"
+        type="image/x-icon">
+
+  <!-- boostrap css -->
+  <link rel="stylesheet"
+        href="{% static 'base/bootstrap/bootstrap.min.css' %}"
+        type="text/css" >
+
+    <link rel="stylesheet"
+        href="{% static 'base/css/main.min.css' %}"
+        type="text/css" >
+
+  <title>Pewnie że Boli - {%block _title %}{% endblock %}</title>
+  {% block head %}{% endblock %}
+</head>
+<body>
+
+  <figure class="container-flex" id="photo-pzb-container">
+    <img src="
+    {% block photo %}{% endblock %}"
+         alt="Logo studia"
+         id="photo-pzb">
+  </figure>
+
+{% include 'base/snippets/navbar.html'%}
+{% block content %}{% endblock %}
+
+
+{% include 'base/snippets/footer.html'%}
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous">
+  </script>
+
+  <!-- import bootstrap js-->
+  <script src="{% static 'base/bootstrap/bootstrap.bundle.min.js' %}" type="text/javascript"></script>
+{% block script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,118 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg
+            navbar-toggleable-md bg-faded
+            navbar-dark bg-nav  nav-tabs"
+     id="menu_bar">
+
+  <!-- Przycisk do mobilnych -->
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto nav-fill w-100">
+      {% with url_name=request.resolver_match.url_name %}
+      <li class="nav-item ">
+        <a class="nav-link
+              {% if url_name == 'team' %}
+                active my_active
+              {% endif %}"
+           href="">
+          <span class="nav-text text-uppercase">Team</span>
+        </a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle
+                    {% if url_name == 'gallery_studio' or url_name == 'gallery_works' %}
+                        active my_active
+                    {% endif %}"
+           href="#"
+           id="navbarDropdown"
+           role="button"
+           data-toggle="dropdown"
+           aria-haspopup="true"
+           aria-expanded="false">
+              <span class="nav-text text-uppercase">
+                  Galeria
+              </span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item index-center nav-text"
+             href="">
+            Studio
+          </a>
+          <a class="dropdown-item index-center nav-text"
+             href="">
+            Tatuaże
+          </a>
+          <a class="dropdown-item index-center nav-text"
+             href="">
+            Pewnie że Boli TV
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link
+                {% if url_name == 'guest_spot_wall' %}
+                    active my_active
+                {% endif %}"
+           href="">
+                <span class="nav-text text-uppercase">
+                    Guest spot wall
+                </span>
+        </a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link
+            {% if url_name == 'wall_of_fame' %}
+                active my_active
+            {% endif %}"
+           href="">
+                <span class="nav-text text-uppercase">
+                    Wall of fame
+                </span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link
+                {% if url_name == 'poradniki' %}
+                    active my_active
+                {% endif %}"
+           href="">
+          <span class="nav-text text-uppercase">Poradniki</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link nav-text
+            {% if url_name == 'faq' %}
+                active my_active
+            {% endif %}"
+           href="">
+          FAQ
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link
+                {% if url_name == 'contact' %}
+                    active my_active
+                {% endif %}"
+           href="">
+          <span class="nav-text text-uppercase">Kontakt</span>
+        </a>
+      </li>
+      {% endwith %}
+    </ul>
+  </div>
+</nav>

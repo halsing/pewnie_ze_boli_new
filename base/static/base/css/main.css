@@ -1,0 +1,368 @@
+/* base html */
+html, body{
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0;
+    padding: 0;
+    -webkit-overflow-scrolling: touch; /* Stops scrolling immediately */
+}
+/* ------------------ FONT ------------------ */
+@font-face{
+    font-family: 'IndieFlower';
+    src: url("../fonts/IndieFlower.ttf");
+}
+
+@font-face {
+    font-family: 'FingerPaint';
+    src: url("../fonts/Audiowide-Regular.ttf");
+}
+
+.finger-paint{
+    font-family: 'FingerPaint';
+}
+
+.indie-flower{
+    font-family: 'IndieFlower';
+}
+
+/* ------------------ HEADER ------------------ */
+
+/* ------------------ NAVBAR ------------------ */
+.nav-link{
+    color: #ffffff !important;
+    padding: 0;
+
+}
+
+.nav-link:hover{
+    border: none;
+    border-top: 1px solid white;
+    border-radius: 0;
+}
+
+.bg-nav {
+    background-color: transparent !important;
+    margin-top: -75px;
+}
+
+.nav-tabs, .nav-item.show, .nav-link{
+    background-color: transparent !important;
+    /*	border-bottom: 6px solid white !important;*/
+}
+
+.nav-text {
+    font-family: 'FingerPaint';
+    font-size: 1.3em;
+    /*	font-weight: bold ; */
+}
+
+.dropdown-item{
+    background-color: white !important;
+    color: black !important;
+}
+
+.dropdown-menu{
+    margin-top: -5px !important;
+    background-color: white !important;
+    padding-bottom: 0;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-left: 0px;
+    border-bottom:  3px solid #252728;
+    border-left:  3px solid #252728;
+    border-right:  none;
+    border-top:  none;
+}
+
+#menu_bar{
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+}
+
+.navbar-toggler{
+    border: 2px solid  lightgrey !important;
+    margin-left: 3px;
+}
+
+
+
+/* ------------------ INDEX ------------------ */
+
+/* ------------------ CONTACT ------------------ */
+
+/* ------------------ FAQ ------------------ */
+
+.faq-content{
+    margin-bottom: 80px;
+    margin-top: 80px;
+}
+
+.faq-card{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.faq-card-content{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.faq-card-text{
+    font-style: 'FingerPaint';
+    color: #3a3a3a;
+    text-decoration: none ;
+}
+
+.faq-margin{
+    padding-top: 6px;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #2e3030;
+}
+
+.footer-contact{
+    text-decoration: none;
+    list-style-type: none;
+    /* margin-left: -40px; */
+    padding-left: 0;
+}
+
+.footer-content{
+    padding-bottom: 2px;
+}
+
+.footer .btn-outline-dark {
+    color: #ccd1d1;
+    background-color: transparent;
+    background-image: none;
+    border-color: #ccd1d1;
+}
+
+.footer > .btn-outline-dark:hover {
+    color: #ccd1d1;
+    background-color: transparent;
+    background-image: none;
+    border: 3px solid #ccd1d1;
+}
+
+.footer-logo{
+    width: 45px;
+    height: 45px;
+}
+
+.footer-logo-logo{
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-social{
+    text-align: center;
+}
+
+.footer-text {
+    color: #ccd1d1;
+    text-align: center;
+}
+
+/* ------------------ GUIDES ------------------ */
+
+.poradniki-box{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.poradniki-read-more {
+    text-decoration: none;
+    font-weight: bold;
+    color: grey;
+}
+
+.poradniki-lines{
+    border-bottom: solid;
+    border-color: lightgrey;
+}
+
+.poradniki-title{
+    text-align: left;
+    font-family: 'FingerPaint';
+    padding-bottom: 30px
+}
+
+/*################### DLA ZDEFINIOWANYCH ROZMIARÓW ########################*/
+
+@media (min-width:989px) and (max-width:1100px){
+    .nav-link {
+        color: white !important;
+    }
+
+    .bg-nav{
+        margin-top: -69px;
+    }
+    .figure-logo-logo{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+    }
+
+    .base-nazwa{
+
+        text-align: center ;
+        margin-left: 0;
+    }
+
+    .figure-pzb-logo{
+        display: none;
+    }
+
+    #pewniezeboli-logo {
+        display: none;
+
+    }
+
+    #first-logo-pzb{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 988px) {
+    .nav-link {
+        color: black !important;
+    }
+
+    .bg-nav{
+        margin-top: -63px;
+    }
+
+    .base-nazwa{
+        text-align: center ;
+        margin-left: 0;
+
+        line-height: 80px;
+        font-size: 7vw;
+        padding-right: 0;
+    }
+
+    .base-nazwa-p {
+        font-size: 9vw ;
+    }
+
+    .navbar-collapse{
+        margin-top: 10px;
+    }
+
+    .index-row-figure{
+        display: flex;
+        justify-content: center;
+        width: 100% !important;
+    }
+    .figure-logo-logo{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+        padding-right: 0;
+    }
+
+    .figure-pzb-logo{
+        display: none;
+    }
+
+    .team-list-photo{
+        width: 50vw ;
+        height: auto;
+    }
+
+    #pewniezeboli-logo {
+        display: none;
+    }
+
+    #first-logo-pzb{
+        display: flex;
+        justify-content: center;
+    }
+
+    .studio-name{
+        font-size: 3.0vw;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .figure-logo-logo{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+        padding-right: 0;
+    }
+
+    .figure-pzb-logo{
+        display: none;
+    }
+
+    #pewniezeboli-logo {
+        display: none;
+
+    }
+
+    .team-list-photo{
+        width: 80vw ;
+        height: auto;
+    }
+
+    .base-nazwa{
+        text-align: center ;
+        margin-left: 0;
+
+        line-height: 80px;
+        font-size: 7vw;
+        padding-right: 0;
+    }
+
+    .base-nazwa-p {
+        font-size: 9vw ;
+    }
+
+    .nav-link{
+        color: #e8e7ed !important;
+    }
+
+
+    .bg-nav {
+        background-color: #323232 !important;
+        margin-top: 0;
+    }
+
+    .google-map-style{
+        width: 400px;
+        height: 300px;
+
+    }
+
+    .index-main-photo{
+        width: 100%;
+        margin-bottom: 0px;
+    }
+
+
+    .logo-box {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .super-table-social{
+        display: none;
+    }
+
+    .studio-name{
+        font-size: 4.5vw;
+    }
+
+}
