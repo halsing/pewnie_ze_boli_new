@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.core.mail import EmailMessage, send_mail
 from django.core.paginator import Paginator
-from django.views.generic import ListView
+from django.views.generic import ListView, TemplateView
 
 from .forms import ContactForm
-from .views_helper import FAQ
+from .view_helpers import FAQ
 from team.models import Artist
+
 
 # Create your views here.
 def contact(request):
@@ -29,7 +30,8 @@ def contact(request):
             attach = request.FILES.getlist('attach', False)
 
             # send_mail(name, from_email, phone_number, recipient_list)
-            # send_mail ('subject', 'body of the message', 'noreply@parsifal.co', ['vitorfs@gmail.com'])
+            # send_mail ('subject', 'body of the message', \
+            # 'noreply@parsifal.co', ['vitorfs@gmail.com'])
 
             body = f"\
                 Imię: {name}\n \
@@ -55,10 +57,7 @@ def contact(request):
 
 
 def faq(request):
-    context = {
-        'faq': FAQ,
-    }
-    return render(request, "base/faq.html",context)
+    return render(request, "base/faq.html", {'faq': FAQ})
 
 
 class Home(ListView):
@@ -66,17 +65,6 @@ class Home(ListView):
     context_object_name = 'artists'
     template_name = "base/index.html"
 
-def index(request):
-    return render(request, "base/index.html")
 
-
-def laser(request):
-    return render(request, "base/laser.html")
-
-
-# class Guides(ListView):
-#     model = Guide
-
-
-def guides(request):
-    return render(request, "base/guides.html")
+class Laser(TemplateView):
+    template_name = "base/laser.html"

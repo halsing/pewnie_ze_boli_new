@@ -84,10 +84,8 @@ class OldStudioGallery(BasePhoto):
     category = 'old_studio'
 
 
-
 class NewStudioGallery(BasePhoto):
     category = 'new_studio'
-
 
 
 class GuestSpotWall(BasePhoto):

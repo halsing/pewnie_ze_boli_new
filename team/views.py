@@ -13,6 +13,5 @@ class TeamList(ListView):
 class ArtistProfile(DetailView):
     template_name = "team/team_detail.html"
 
-
     def get_queryset(self):
         return Artist.objects.filter(slug=self.kwargs['artist'])
