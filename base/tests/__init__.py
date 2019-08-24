@@ -1,2 +1,7 @@
 from .url_tests import TestUrls
-from .view_tests import TestViews
+from .views_tests import (
+    TestHomeView,
+    TestContactView,
+    TestFaqView,
+    TestLaserView,
+)

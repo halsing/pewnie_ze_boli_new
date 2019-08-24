@@ -1,7 +1,12 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 
-from gallery.views import StudioGallery, GuestSpot, FameWall, studio_photos
+from gallery.views import (
+    StudioGallery,
+    GuestSpot,
+    FameWall,
+    studio_photos,
+)
 
 
 class TestGalleryUrls(SimpleTestCase):
