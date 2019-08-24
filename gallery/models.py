@@ -1,43 +1,43 @@
 from django.db import models
-from django.utils import timezone
 from PIL import Image as PILImage
 from io import BytesIO
 from django.core.files.uploadedfile import InMemoryUploadedFile
-from django.template.defaultfilters import slugify
 
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
 
 
 # function return path to directory with images with current filename
-def get_directory(instance,filename):
+def get_directory(instance, filename):
     return f"{instance.category}/{filename}"
 
 
 # Create your models here.
 class BasePhoto(models.Model):
     photo = models.ImageField(upload_to=get_directory)
-    photo_medium = models.ImageField(upload_to=get_directory,
-                                     blank=True,
-                                     null=True,
-                                     editable=False,
-                                     )
-    photo_min = models.ImageField(upload_to=get_directory,
-                                  blank=True,
-                                  null=True,
-                                  editable=False,
-                                  )
+    photo_medium = models.ImageField(
+        upload_to=get_directory,
+        blank=True,
+        null=True,
+        editable=False,
+    )
+    photo_min = models.ImageField(
+        upload_to=get_directory,
+        blank=True,
+        null=True,
+        editable=False,
+          )
 
     def save(self, *args, **kwargs):
 
         # resize the image
         if self.photo:
-            self.photo_medium = self.compress_image(self.photo,900,600)
+            self.photo_medium = self.compress_image(self.photo, 900, 600)
             self.photo_min = self.compress_image(self.photo, 600, 400)
 
-        super(BasePhoto,self).save(*args, **kwargs)
+        super(BasePhoto, self).save(*args, **kwargs)
 
-    def compress_image(self,my_image,my_width,my_height):
+    def compress_image(self, my_image, my_width, my_height):
         img_temp = PILImage.open(my_image)
         x = my_width
         y = my_height
@@ -48,7 +48,6 @@ class BasePhoto(models.Model):
         width, height = img_temp.size
         ratio = width / height
 
-
         if width > x or height > y:
             if width >= height:
                 y = int(x / ratio)
@@ -58,13 +57,14 @@ class BasePhoto(models.Model):
             x = width
             y = height
 
-        img_temp.thumbnail((x,y), PILImage.ANTIALIAS)
+        img_temp.thumbnail((x, y), PILImage.ANTIALIAS)
         save_buff = BytesIO()
-        img_temp.save(save_buff,
-                     format="JPEG",
-                     optimize=True,
-                     quality=70
-                     )
+        img_temp.save(
+            save_buff,
+            format="JPEG",
+            optimize=True,
+            quality=70
+        )
         save_buff.seek(0)
         my_image = InMemoryUploadedFile(
             save_buff,
@@ -77,7 +77,7 @@ class BasePhoto(models.Model):
         return my_image
 
     class Meta:
-       abstract = True
+        abstract = True
 
 
 class OldStudioGallery(BasePhoto):
@@ -89,7 +89,7 @@ class NewStudioGallery(BasePhoto):
 
 
 class GuestSpotWall(BasePhoto):
-    name = models.CharField(max_length=30,verbose_name="Imię")
+    name = models.CharField(max_length=30, verbose_name="Imię")
     category = 'guest_spot_wall'
 
     def __str__(self):
@@ -97,7 +97,7 @@ class GuestSpotWall(BasePhoto):
 
 
 class FameWall(BasePhoto):
-    name = models.CharField(max_length=30,verbose_name="Imię")
+    name = models.CharField(max_length=30, verbose_name="Imię")
     category = 'fame_wall'
 
     def __str__(self):

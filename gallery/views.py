@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.views.generic import ListView, TemplateView
-from django.shortcuts import get_object_or_404
 from django.http import Http404
 
-from .models import ( OldStudioGallery,
-                      NewStudioGallery,
-                      FameWall,
-                      GuestSpotWall)
+from .models import (OldStudioGallery,
+                     NewStudioGallery,
+                     FameWall,
+                     GuestSpotWall)
 
 
 # Create your views here.
@@ -36,4 +35,4 @@ def studio_photos(request, type):
         'gallery': gallery,
     }
 
-    return render(request,"gallery/studio_photos.html",context)
+    return render(request, "gallery/studio_photos.html", context)

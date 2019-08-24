@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.core.mail import EmailMessage, send_mail
-from django.core.paginator import Paginator
 from django.views.generic import ListView, TemplateView
 
 from .forms import ContactForm

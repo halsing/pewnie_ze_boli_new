@@ -12,6 +12,7 @@ ARTIST_TYPE = (
     ('S', 'Obsługa')
 )
 
+
 # Create your models here.
 class Artist(BasePhoto):
     name = models.CharField(max_length=100, unique=True)
@@ -23,8 +24,8 @@ class Artist(BasePhoto):
                                    verbose_name="Krótki opis",
                                    blank=True,
                                    null=True)
-    inst_link_name = models.CharField(max_length=100,blank=True,null=True)
-    facebook_link_name = models.CharField(max_length=100,blank=True,null=True)
+    inst_link_name = models.CharField(max_length=100, blank=True, null=True)
+    facebook_link_name = models.CharField(max_length=100, blank=True, null=True)
     pzb_gallery = models.TextField(blank=True, null=True)
     priority = models.IntegerField(default=1)
     artist_type = models.CharField(choices=ARTIST_TYPE,
@@ -33,14 +34,13 @@ class Artist(BasePhoto):
 
     category = "tattoo_artist"
 
-
     def __str__(self):
         return self.name
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
 
-        super().save(*args,**kwargs)
+        super().save(*args, **kwargs)
 
 
 class ArtistPhoto(BasePhoto):
