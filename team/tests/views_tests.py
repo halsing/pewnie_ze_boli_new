@@ -21,8 +21,11 @@ class TestTeamListView(TestCase):
 #         self.client = Client()
 #
 #     def test_base_response_GET(self):
-#         # response = ArtistProfile.as_view()(self.instance.request,slug="the_book")
-#         response = self.client.get(reverse('base:artist_profile', kwargs={'artist':1}))
+#
+#      # response=ArtistProfile.as_view()(self.instance.request,slug="the_book")
+#
+#         response = self.client.get(
+#             reverse('base:artist_profile', kwargs={'artist': "test"}))
 #
 #         self.assertEquals(response.status_code, 404)
 #         # self.assertTemplateUsed(response, 'team/team_detail.html')

@@ -17,7 +17,7 @@ ARTIST_TYPE = (
 class Artist(BasePhoto):
     name = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(unique=True, blank=True)
-    logo = models.ImageField(upload_to="team_logo_img")
+    logo = models.ImageField(upload_to="team_logo_img", blank=True, null=True)
     style = models.CharField(max_length=40,
                              verbose_name="Stylistyka prac artysty")
     description = models.CharField(max_length=300,
