@@ -8,6 +8,7 @@ from .models import Artist
 class TeamList(ListView):
     template_name = "team/team_list.html"
     queryset = Artist.objects.order_by('priority', '-slug')
+    context_object_name = "team_list"
 
 
 class ArtistProfile(DetailView):

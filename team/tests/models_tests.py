@@ -7,7 +7,7 @@ from team.models import Artist, ArtistPhoto
 
 
 def create_test_image(
-        name='test.jpg', ext='JPEG', size=(1600, 1550), color=(256, 0, 0)):
+        name='test.jpg', ext='JPEG', size=(1600, 1500), color=(256, 0, 0)):
     file_obj = BytesIO()
     image = Image.new("RGB", size=size, color=color)
     image.save(file_obj, ext)
@@ -19,15 +19,18 @@ class TestArtistModels(TestCase):
 
     def setUp(self):
         self.artist1 = Artist.objects.create(
-            name='test1',
+            name='test1 Slug',
             style='test1',
             description='bla bla',
             artist_type='T',
             photo=create_test_image()
         )
 
+    def test_artist_name(self):
+        self.assertEqual(self.artist1.name, 'test1 Slug')
+
     def test_artist_slug_created(self):
-        self.assertEqual(self.artist1.slug, 'test1')
+        self.assertEqual(self.artist1.slug, 'test1-slug')
 
     def test_photo_min_size(self):
         self.assertEqual(self.artist1.photo_min.width, 600)

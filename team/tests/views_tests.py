@@ -1,6 +1,9 @@
 from django.test import TestCase, Client
 from django.urls import reverse
+
+from .models_tests import create_test_image
 from team.views import ArtistProfile
+from team.models import Artist, ArtistPhoto
 
 
 class TestTeamListView(TestCase):
